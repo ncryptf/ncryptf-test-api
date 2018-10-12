@@ -1,0 +1,25 @@
+version: "3.6"
+services:
+  php:
+    image: registry.pkiapps.com/punchkick/php:7.2-alpine
+    working_dir: /var/www
+    ports:
+      - 8080:8080
+    links:
+      - redis:redis
+    volumes:
+      - ${PWD-.}:/var/www
+      - ${PWD-.}/vendor:/var/www/vendor:readonly
+    networks:
+      main:
+        aliases:
+          - php
+  redis:
+    image: redis:4.0-alpine
+    networks:
+      main:
+        aliases:
+          - redis
+
+networks:
+  main:
