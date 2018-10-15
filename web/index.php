@@ -9,20 +9,18 @@ if (PHP_SAPI == 'cli-server') {
         return false;
     }
 }
-require __DIR__ . '/../vendor/autoload.php';
 
-// Instantiate the app
+require __DIR__ . '/../vendor/autoload.php';
 $settings = require __DIR__ . '/../src/settings.php';
 
 $app = new \Slim\App($settings);
 
-// Set up dependencies
 require __DIR__ . '/../src/dependencies.php';
-
-// Set up middlewares
 require __DIR__ . '/../src/middleware.php';
-
-// Register routes
 require __DIR__ . '/../src/routes.php';
 
-(new \ReactiveSlim\Server($app))->run();
+if (($env = \getenv('ENV')) === 'dev') {
+    $app->run();
+} else {
+    (new \ReactiveSlim\Server($app))->run();
+}

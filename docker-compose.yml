@@ -1,20 +1,18 @@
-version: "3.6"
+version: "3.7"
 services:
   php:
-    image: registry.pkiapps.com/punchkick/php:7.2-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
     working_dir: /var/www
     ports:
       - 8080:8080
     links:
       - redis:redis
-    volumes:
-      - ${PWD-.}:/var/www
-      - ${PWD-.}/vendor:/var/www/vendor:cached
     networks:
       main:
         aliases:
           - php
-    entrypoint: bash -lc "/root/.bin/composer install -ovna; php /var/www/web/index.php --host=0.0.0.0 --port=8080"
     environment:
       - REDIS_HOST=redis
   redis:
