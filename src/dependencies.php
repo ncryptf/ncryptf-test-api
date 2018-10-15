@@ -18,6 +18,10 @@ $container['cache'] = function ($c) {
     return $cache;
 };
 
-$container['callableResolver'] = function ($container) {
-    return new CallableResolver($container);
+$container['access'] = function ($c) {
+    return $c->get('settings')['access'];
+};
+
+$container['callableResolver'] = function ($c) {
+    return new CallableResolver($c);
 };

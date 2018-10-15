@@ -38,4 +38,5 @@ php -S [::]:8080 -t ./web
 | Variable   | Description |
 |------------|-------------|
 | REDIS_HOST | The IP address of a Redis 4.0 instance |
-| ENV | Set to `dev` to run the built in PHP web server instead of the ReactPHP server |
+| ENV | Set to `dev` to run the built in PHP web server instead of the ReactPHP server. |
+| ACCESS_TOKEN | An optional alphanumeric string to help prevent unauthorized API access. |

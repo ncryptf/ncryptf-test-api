@@ -4,3 +4,4 @@ vendor
 *.md
 LICENSE
 Dockerfile
+.git

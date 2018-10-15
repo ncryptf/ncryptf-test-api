@@ -14,9 +14,8 @@ use App\models\EncryptionKey;
  * @param array $args
  * @return Response
  */
-$app->get('/ek', function (Request $request, Response $response, array $args) {
+$app->get('/ek', function ($request, Response $response, array $args) {
     $key = EncryptionKey::generate();
-
     $this->cache->set($key->getHashIdentifier(), \function_exists('igbinary_serialize') ? \igbinary_serialize($key) : \serialize($key), 900);
 
     return $response->withJson([

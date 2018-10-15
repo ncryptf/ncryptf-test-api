@@ -1,6 +1,7 @@
 <?php
 
 use App\middleware\Authentication;
+use App\middleware\AccessToken;
 use App\models\EncryptionKey;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -24,3 +25,4 @@ $app->add(new class implements MiddlewareInterface {
     }
 });
 $app->add(new JsonRequestParser($container['cache']));
+$app->add(new AccessToken($container['access']['token']));
