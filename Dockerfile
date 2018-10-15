@@ -4,10 +4,10 @@ LABEL maintainer "Charles R. Portwood II <charlesportwoodii@erianna.com>"
 ENV REDIS_HOST "redis"
 ENV ENV "dev"
 
-WORKDIR /var/www
+WORKDIR /app
 
-COPY . /var/www
+COPY . /app
 
-RUN /root/.bin/composer install -ovna
+RUN /root/.bin/composer install -ovna --no-dev
 
-ENTRYPOINT ["php", "/var/www/web/index.php", "--host=0.0.0.0", "--port=8080"]
+ENTRYPOINT ["php", "/app/web/index.php", "--host=0.0.0.0", "--port=8080"]
