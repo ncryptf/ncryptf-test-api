@@ -1,0 +1,6 @@
+vendor
+*.xml
+*.yml
+*.md
+LICENSE
+Dockerfile
