@@ -4,7 +4,7 @@ namespace App\routes;
 
 use App\middleware\Authentication;
 use App\models\EncryptionKey;
-use Slim\Http\Request;
+use Zend\Diactoros\ServerRequest as Request;
 use Slim\Http\Response;
 use Zend\Diactoros\Stream;
 

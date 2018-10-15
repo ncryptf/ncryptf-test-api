@@ -2,7 +2,7 @@
 
 namespace App\routes;
 
-use Slim\Http\Request;
+use Zend\Diactoros\ServerRequest as Request;
 use Slim\Http\Response;
 use App\models\EncryptionKey;
 
@@ -17,7 +17,7 @@ use App\models\EncryptionKey;
 $app->get('/ek', function (Request $request, Response $response, array $args) {
     $key = EncryptionKey::generate();
 
-    $this->cache->set($key->getHashIdentifier(), \igbinary_serialize($key), 900);
+    $this->cache->set($key->getHashIdentifier(), \function_exists('igbinary_serialize') ? \igbinary_serialize($key) : \serialize($key), 900);
 
     return $response->withJson([
         'public' => \base64_encode($key->getBoxPublicKey()),

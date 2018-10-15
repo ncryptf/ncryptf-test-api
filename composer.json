@@ -19,7 +19,12 @@
         "slim/slim": "^3.11",
         "chillerlan/php-cache": "^2.0",
         "bnf/slim3-psr15": "^1.0",
-        "zendframework/zend-diactoros": "^2.0"
+        "zendframework/zend-diactoros": "^1.8.6 | ^2.0",
+        "nigelgreenway/reactive-slim": "^0.3.2",
+        "middlewares/payload": "^2.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.2"
     },
     "autoload": {
         "psr-4": {

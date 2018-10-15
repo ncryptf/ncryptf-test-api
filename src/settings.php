@@ -4,7 +4,7 @@ return [
         'displayErrorDetails' => true,
         'addContentLengthHeader' => false,
         'redis' => [
-            'host' => '127.0.0.1',
+            'host' => getenv('REDIS_HOST'),
             'port' => 6379
         ]
     ],

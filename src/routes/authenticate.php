@@ -4,9 +4,10 @@ namespace App\routes;
 
 use App\forms\Login;
 use App\models\User;
-use Slim\Http\Request;
 use Slim\Http\Response;
+use Middlewares\JsonPayload;
 use ncryptf\Token;
+use Zend\Diactoros\ServerRequest as Request;
 
 /**
  * Returns a ephemeral key (that isn't ephemeral)
@@ -17,8 +18,7 @@ use ncryptf\Token;
  * @return Response
  */
 $app->post('/authenticate', function (Request $request, Response $response, array $args) {
-
-    $params = $request->getParams();
+    $params = $request->getParsedBody();
     if (isset($params['email']) && isset($params['password'])) {
         $form = new Login($params['email'], $params['password']);
         if ($user = $form->login()) {
@@ -35,4 +35,4 @@ $app->post('/authenticate', function (Request $request, Response $response, arra
     return $response->withJson([
         'error' => 'The credentials you provided are not valid.'
     ])->withStatus(400);
-});
+})->add(new JsonPayload);
