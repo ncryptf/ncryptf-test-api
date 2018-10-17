@@ -4,7 +4,6 @@ namespace App\routes;
 
 use App\middleware\Authentication;
 use App\models\EncryptionKey;
-use Zend\Diactoros\ServerRequest as Request;
 use Slim\Http\Response;
 use Zend\Diactoros\Stream;
 
@@ -16,7 +15,7 @@ use Zend\Diactoros\Stream;
  * @param array $args
  * @return Response
  */
-$app->post('/echo', function (Request $request, Response $response, array $args) {
+$app->post('/echo', function ($request, Response $response, array $args) {
     if ($contentType = $request->getHeaderLine('Content-Type', false)) {
         if ($contentType === 'application/vnd.ncryptf+json') {
             $stream = fopen('php://memory', 'r+');
@@ -36,7 +35,7 @@ $app->post('/echo', function (Request $request, Response $response, array $args)
  * @param array $args
  * @return Response
  */
-$app->put('/echo', function (Request $request, Response $response, array $args) {
+$app->put('/echo', function ($request, Response $response, array $args) {
     if ($contentType = $request->getHeaderLine('Content-Type', false)) {
         if ($contentType === 'application/vnd.ncryptf+json') {
             $stream = fopen('php://memory', 'r+');

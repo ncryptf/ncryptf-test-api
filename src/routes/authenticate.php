@@ -7,7 +7,6 @@ use App\models\User;
 use Slim\Http\Response;
 use Middlewares\JsonPayload;
 use ncryptf\Token;
-use Zend\Diactoros\ServerRequest as Request;
 
 /**
  * Returns a ephemeral key (that isn't ephemeral)
@@ -17,7 +16,7 @@ use Zend\Diactoros\ServerRequest as Request;
  * @param array $args
  * @return Response
  */
-$app->post('/authenticate', function (Request $request, Response $response, array $args) {
+$app->post('/authenticate', function ($request, Response $response, array $args) {
     $params = $request->getParsedBody();
     if (isset($params['email']) && isset($params['password'])) {
         $form = new Login($params['email'], $params['password']);
