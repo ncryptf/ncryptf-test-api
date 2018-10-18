@@ -10,9 +10,9 @@ For implementation examples, refer to the `IntgrationTest` test class in the ncr
 
 | Language |
 |----------|
-| Java |
+| [Java](https://github.com/ncryptf/ncryptf-java/blob/master/src/test/java/com/ncryptf/Test/IntegrationTest.java) |
 | Kotlin |
-| .Net Core |
+| [.Net Core](https://github.com/ncryptf/ncryptf-core/blob/master/ncryptf.Test/IntegrationTest.cs) |
 | [PHP](https://github.com/ncryptf/ncryptf-php/blob/master/tests/IntegrationTest.php) |
 | Swift |
 
