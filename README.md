@@ -11,10 +11,11 @@ For implementation examples, refer to the `IntgrationTest` test class in the ncr
 | Language |
 |----------|
 | [Java](https://github.com/ncryptf/ncryptf-java/blob/master/src/test/java/com/ncryptf/Test/IntegrationTest.java) |
-| Kotlin |
+| [Kotlin](https://github.com/ncryptf/ncryptf-kotlin/blob/master/app/src/androidTest/kotlin/com/ncryptf/android/IntegrationTest.kt) |
 | [.Net Core](https://github.com/ncryptf/ncryptf-core/blob/master/ncryptf.Test/IntegrationTest.cs) |
 | [PHP](https://github.com/ncryptf/ncryptf-php/blob/master/tests/IntegrationTest.php) |
-| Swift |
+| [Swift](https://github.com/ncryptf/ncryptf-swift/blob/master/Tests/ncryptfTest/IntegrationTest.swift) |
+| [Go](https://github.com/ncryptf/ncryptf-go/blob/master/integration_test.go)
 
 > This library is provided as reference material, and is not guaranteed to be updated. Please review direct implementation examples, or other documentation.
 
